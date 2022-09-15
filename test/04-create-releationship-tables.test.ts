@@ -16,7 +16,6 @@ genre_id INTEGER NOT NULL,
 PRIMARY KEY(movie_id, genre_id)
 FOREIGN KEY(movie_id) REFERENCES movies(id)
 FOREIGN KEY(genre_id) REFERENCES genres(id)
-ON DELETE CASCADE
 )`;
 
 const CREATE_MOVIE_ACTORS_TABLE = `CREATE TABLE ${MOVIE_ACTORS} (
@@ -25,7 +24,6 @@ actor_id INTEGER NOT NULL,
 PRIMARY KEY(movie_id, actor_id)
 FOREIGN KEY(movie_id) REFERENCES movies(id)
 FOREIGN KEY(actor_id) REFERENCES actors(id)
-ON DELETE CASCADE
 )`;
 
 const CREATE_MOVIE_DIRECTORS_TABLE = `CREATE TABLE ${MOVIE_DIRECTORS} (
@@ -34,7 +32,6 @@ director_id INTEGER NOT NULL,
 PRIMARY KEY(movie_id, director_id) 
 FOREIGN KEY(movie_id) REFERENCES movies(id)
 FOREIGN KEY(director_id) REFERENCES directors(id)
-ON DELETE CASCADE
 )`;
 
 const CREATE_MOVIE_KEYWORDS_TABLE = `CREATE TABLE ${MOVIE_KEYWORDS} (
@@ -43,7 +40,6 @@ keyword_id INTEGER NOT NULL,
 PRIMARY KEY(movie_id, keyword_id) 
 FOREIGN KEY(movie_id) REFERENCES movies(id)
 FOREIGN KEY(keyword_id) REFERENCES keywords(id)
-ON DELETE CASCADE
 )`;
 
 const CREATE_MOVIE_PRODUCTION_COMPANIES_TABLE = `CREATE TABLE ${MOVIE_PRODUCTION_COMPANIES} (
@@ -52,7 +48,6 @@ company_id INTEGER NOT NULL,
 PRIMARY KEY(movie_id, company_id) 
 FOREIGN KEY(movie_id) REFERENCES movies(id)
 FOREIGN KEY(company_id) REFERENCES production_companies(id)
-ON DELETE CASCADE
 )`;
 
 describe("Insert Combined Data", () => {
