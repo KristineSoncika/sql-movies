@@ -6,7 +6,7 @@ import {
   selectActorById,
   selectKeywordById,
   selectProductionCompanyById,
-  selectMovieById
+  selectMovieById,
 } from "../src/queries/select";
 import { minutes } from "./utils";
 
@@ -20,7 +20,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete genres if any movie is linked",
-    async done => {
+    async (done) => {
       const genreId = 5;
       const query = `delete genre by id`;
       try {
@@ -37,7 +37,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete director if any movie is linked",
-    async done => {
+    async (done) => {
       const directorId = 7;
       const query = `delete director by id`;
       try {
@@ -54,7 +54,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete actor if any movie is linked",
-    async done => {
+    async (done) => {
       const actorId = 10;
       const query = `delete actor by id`;
       try {
@@ -71,7 +71,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete keyword if any movie is linked",
-    async done => {
+    async (done) => {
       const keywordId = 12;
       const query = `delete keyword by id`;
       try {
@@ -88,7 +88,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete production company if any movie is linked",
-    async done => {
+    async (done) => {
       const companyId = 12;
       const query = `delete production company by id`;
       try {
@@ -107,7 +107,7 @@ describe("Foreign Keys", () => {
 
   it(
     "should not be able delete movie if there are any linked data present",
-    async done => {
+    async (done) => {
       const movieId = 100;
       const query = `delete movie by id`;
       try {
@@ -124,9 +124,9 @@ describe("Foreign Keys", () => {
 
   it(
     "should be able to delete movie",
-    async done => {
+    async (done) => {
       const movieId = 5915;
-      const query = `delete movie by id and all data from all linked tables`;
+      const query = `DELETE FROM movies WHERE id = 5915`;
 
       await db.delete(query);
 
